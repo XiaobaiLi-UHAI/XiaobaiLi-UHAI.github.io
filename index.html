@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dr. Xiaobai Li - Profile</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* Shared Container Styles */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap; /* ensures wrapping on smaller screens */
+      gap: 20px;       /* space between columns */
+    }
+
+    /* First Row (Top) */
+    .top-row {
+      padding: 30px 0 20px; /* top 30, bottom 20 */
+    }
+
+    /* Second Row (Below) */
+    .second-row {
+      padding: 0 0 30px; /* top 0, bottom 30 */
+    }
+
+    /* Top Row: Profile Card (left) + About (right) */
+    .profile-card, .about-section {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex: 1 1 300px; /* flexible columns */
+    }
+
+    .profile-card {
+      max-width: 350px; /* limit left column width if you like */
+    }
+
+    /* Profile Card Elements */
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .title {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+    .affiliations {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+
+    /* Scholar + CV Link */
+    .profile-links {
+      margin-bottom: 15px;
+    }
+    .profile-links a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.95rem;
+      margin-right: 15px;
+      font-weight: 500;
+    }
+    .profile-links a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+    }
+    .download-cv {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+    }
+    .download-cv:hover {
+      background-color: #45a049;
+    }
+
+    /* About Section */
+    .about-section h2 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      color: #333;
+    }
+    .about-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Second Row: Interests (left) + Education (right) */
+    .interests, .education {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex: 1 1 300px;
+    }
+    .interests h2, .education h2 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      color: #333;
+    }
+    .interests ul, .education ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Footer / Under Construction */
+    .footer {
+      text-align: center;
+      font-size: 1.2rem; /* increased */
+      color: #888;
+      padding-bottom: 30px; /* extra space at the bottom */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Row -->
+  <div class="container top-row">
+    <!-- Left: Profile Card -->
+    <div class="profile-card">
+      <img 
+        src="xiaobai.png" 
+        alt="Photo of Dr. Xiaobai Li" 
+        class="profile-photo"
+      />
+      <div class="name">Dr. Xiaobai Li</div>
+      <div class="title">Assistant Professor</div>
+      <div class="affiliations">
+        State Key Laboratory of Blockchain and Data Security, Zhejiang University, China<br/>
+        Center for Machine Vision and Signal Analysis, University of Oulu, Finland
+      </div>
+
+      <!-- Scholar Link -->
+      <div class="profile-links">
+        <a 
+          href="https://scholar.google.com/citations?user=JTFfexYAAAAJ" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <img 
+            src="gScholar.png" 
+            alt="Google Scholar"
+          />
+          Google Scholar
+        </a>
+      </div>
+      <!-- <a class="download-cv" href="resume.pdf" download>Download CV</a>-->
+    </div>
+
+    <!-- Right: About Section -->
+    <div class="about-section">
+      <h2>About Me</h2>
+      <p>
+        I am currently a ZJU100 professor at the School of Cyber Science and Technology,
+        Zhejiang University, and an adjunct professor at the Center for Machine Vision
+        and Signal Analysis, University of Oulu, Finland. My research focuses on
+        computer vision and machine learning, with special emphasis on facial
+        expression recognition, micro-expression recognition, remote physiological
+        signal measurement, and other applications in affective computing, healthcare,
+        biometrics, and Deepfake detection.
+      </p>
+    </div>
+  </div>
+
+  <!-- Second Row: Interests & Education side by side -->
+  <div class="container second-row">
+    <!-- Left: Interests -->
+    <div class="interests">
+      <h2>Interests</h2>
+      <ul>
+        <li>Computer Vision</li>
+        <li>Machine Learning</li>
+        <li>Affective Computing</li>
+        <li>Facial Expression &amp; Micro‐Expression Recognition</li>
+        <li>Remote Physiological Signal Measurement</li>
+      </ul>
+    </div>
+
+    <!-- Right: Education -->
+    <div class="education">
+      <h2>Education</h2>
+      <ul>
+        <li>Ph.D. in Computer Science &amp; Engineering, University of Oulu, Finland</li>
+        <li>M.Sc. in Cognitive Neuroscience, Chinese Academy of Sciences, Beijing, China</li>
+        <li>B.Sc. in Psychology &amp; Electronic Business, Peking University, Beijing, China</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    The Website is Under Construction...
+  </div>
+
+</body>
+</html>
