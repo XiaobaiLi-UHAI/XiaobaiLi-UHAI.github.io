@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dr. Xiaobai Li - Profile</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* 1) Slightly Larger, Better-Looking Tabs with Hover Effect */
+    .main-header {
+      background-color: #333;
+      padding: 10px 20px;
+    }
+    .main-header .nav-tabs {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+    .main-header .nav-tabs li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem; /* slightly larger */
+      padding: 8px 12px; /* some padding for a nicer look */
+      transition: background-color 0.3s ease;
+      border-radius: 4px; /* slight rounding for a modern look */
+    }
+    .main-header .nav-tabs li a:hover {
+      background-color: #555;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* Top Row (Profile + About) */
+    .top-row {
+      padding: 30px 0 20px;
+    }
+    .profile-card, .about-section {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex: 1 1 300px;
+    }
+    .profile-card {
+      max-width: 350px;
+    }
+    .profile-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .title {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+    .affiliations {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+    .profile-links {
+      margin-bottom: 15px;
+    }
+    .profile-links a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.95rem;
+      margin-right: 15px;
+      font-weight: 500;
+    }
+    .profile-links a img {
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+    }
+    .download-cv {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+    }
+    .download-cv:hover {
+      background-color: #45a049;
+    }
+    .about-section h2 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      color: #333;
+    }
+    .about-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Second Row (Education + Projects + News) */
+    .second-row {
+      padding: 0 0 30px;
+    }
+    .info-column {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex: 1 1 300px;
+    }
+    .info-column h2 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      color: #333;
+      text-align: center;
+    }
+    .info-column p, .info-column ul {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* View More Button Styles */
+    .view-more-container {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .view-more-btn {
+      display: inline-block;
+      background-color: #04111e82;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .view-more-btn:hover {
+      background-color: #04111e;
+    }
+
+    /* Research Areas Grid */
+    .research-areas {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .research-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+    }
+    .research-card img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .research-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .research-card p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    /* 2) Black Footer */
+    footer {
+      text-align: center;
+      font-size: 1.2rem;
+      background: #000; /* black background */
+      color: #fff;      /* white text */
+      padding-bottom: 30px;
+      padding-top: 15px;
+    }
+    footer strong {
+      font-size: 2em;
+    }
+
+    /* Modal Styles (for Projects and News if needed) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 800px;
+      width: 90%;
+      position: relative;
+    }
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+    }
+
+    /* 4) Scroll Up Arrow (dark blue color) */
+    #scrollUp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1a3f95; /* dark blue */
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      display: none; /* hidden by default, shown when scrolling down */
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Tabs -->
+  <header class="main-header">
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Top Row (Profile + About) -->
+  <div class="container top-row">
+    <!-- Profile Card -->
+    <div class="profile-card">
+      <img src="images/xiaobai.png" alt="Photo of Dr. Xiaobai Li" class="profile-photo" />
+      <div class="name">Dr. Xiaobai Li</div>
+      <div class="title"></div>
+      <div class="affiliations">
+        • ZJU100 Professor, State Key Laboratory of Blockchain and Data Security, Zhejiang University, China<br/>
+        • Adjunct Professor, Center for Machine Vision and Signal Analysis, University of Oulu, Finland.
+      </div>
+      <div class="profile-links">
+        <a href="https://scholar.google.com/citations?hl=en&user=JTFfexYAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener noreferrer">
+          <img src="images/gScholar.png" alt="Google Scholar" />gScholar
+        </a>
+        <a href="https://www.linkedin.com/in/li-xiaobai-0614a11a/" target="_blank" rel="noopener noreferrer">
+          <img src="images/linkedin.png" alt="LinkedIn" />LinkedIn
+        </a>
+        <a href="https://orcid.org/0000-0003-4519-7823" target="_blank" rel="noopener noreferrer">
+          <img src="images/orcid.png" alt="ORCID" />ORCID
+        </a>
+      </div>
+    </div>
+    <!-- About Section -->
+    <div class="about-section" id="about">
+      <h2>About Me</h2>
+      <p>
+        I am currently a ZJU100 professor at the School of Cyber Science and Technology, Zhejiang University, 
+        and an adjunct professor at the Center for Machine Vision and Signal Analysis, University of Oulu, Finland. 
+        My research focuses on computer vision and machine learning, with special emphasis on facial expression 
+        recognition, micro-expression recognition, remote physiological signal measurement, and other applications 
+        in affective computing, healthcare, biometrics, and Deepfake detection.
+      </p>
+    </div>
+  </div>
+
+  <!-- Second Row (Education + Projects + News) -->
+  <div class="container second-row">
+    <!-- Education Column -->
+    <div class="info-column">
+      <h2>Education</h2>
+      <ul>
+        <li>Ph.D. in Computer Science &amp; Engineering, University of Oulu, Finland.</li>
+        <li>M.Sc. in Cognitive Neuroscience, Chinese Academy of Sciences, Beijing, China.</li>
+        <li>B.Sc. in Psychology &amp; Electronic Business, Peking University, Beijing, China.</li>
+      </ul>
+    </div>
+    <!-- Projects Column -->
+    <div class="info-column" id="projects-col">
+      <h2>Projects</h2>
+      <ul>
+        <li>University of Oulu, Eudaimonia Oulu funding (Co-PI with Kerttu Huttunen, 452,000€).</li>
+        <li>Academy of Finland, Academy ICT project (Co-PI with Guoying Zhao, 457,658€).</li>
+        <li>The Finnish Work Environment Fund, consortium project (PI, 102,254€).</li>
+      </ul>
+      <div class="view-more-container">
+        <button class="view-more-btn" onclick="openModal('projects-modal')">View More...</button>
+      </div>
+    </div>
+    <!-- News Column -->
+    <div class="info-column" id="news-col">
+      <h2>News</h2>
+      <ul>
+        <li>4th Remote Physiological Signal Sensing (RePSS) challenge workshop @IJCAI'25</li>
+        <li>1st 4D Micro-Expression Recognition for Mind Reading (4DMR) challenge workshop @IJCAI'25</li>
+        <li>2nd Micro-Action Analysis Grand Challenge @ACM Multimedia'25</li>
+      </ul>
+      <div class="view-more-container">
+        <button class="view-more-btn" onclick="openModal('news-modal')">View More...</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Research Areas -->
+  <h2 style="text-align:center; margin-bottom: 20px;">Research Areas</h2>
+  <div class="research-areas">
+    <div class="research-card">
+      <img src="images/AC.png" alt="Affective Computing">
+      <h3>Affective Computing (AC)</h3>
+      <p>Analyzing and interpreting human emotions through computational methods.</p>
+    </div>
+    <div class="research-card">
+      <img src="images/rPPG.jpg" alt="Remote Physiological Signal Measurement">
+      <h3>Remote Physiological Signals (rPPG)</h3>
+      <p>Measuring vital signs such as heart rate from video data.</p>
+    </div>
+    <div class="research-card">
+      <img src="images/Bio.png" alt="Biometrics">
+      <h3>Biometrics (Bio)</h3>
+      <p>Employing facial, behavioral, and physiological characteristics for authentication.</p>
+    </div>
+    <div class="research-card">
+      <img src="images/FD.png" alt="Forgery Detection">
+      <h3>Forgery Detection (FD)</h3>
+      <p>Identifying and combating Deepfakes and other manipulations.</p>
+    </div>
+  </div>
+
+  <!-- Publications Section (Embedded Inline) -->
+  <div class="container second-row">
+    <div class="info-column" id="publications">
+      <h2>Publications</h2>
+      <div style="text-align: center;">
+        Below are 10 representative papers. Please visit 
+        <a href="https://scholar.google.com/citations?hl=en&user=JTFfexYAAAAJ" target="_blank" rel="noopener noreferrer">
+          Google Scholar
+        </a> for the full list of publications.<br><br>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-buttons" style="text-align:center; margin-bottom:15px;">
+        <button class="filter-btn" style="margin: 0 5px; padding: 8px 12px; cursor: pointer;" onclick="filterPublications('all')">All</button>
+        <button class="filter-btn" style="margin: 0 5px; padding: 8px 12px; cursor: pointer;" onclick="filterPublications('AC')">AC</button>
+        <button class="filter-btn" style="margin: 0 5px; padding: 8px 12px; cursor: pointer;" onclick="filterPublications('rPPG')">rPPG</button>
+        <button class="filter-btn" style="margin: 0 5px; padding: 8px 12px; cursor: pointer;" onclick="filterPublications('Bio')">Bio</button>
+        <button class="filter-btn" style="margin: 0 5px; padding: 8px 12px; cursor: pointer;" onclick="filterPublications('FD')">FD</button>
+      </div>
+
+      <!-- Publication List -->
+      <div class="publication-list" style="display: flex; flex-direction: column; gap: 30px;">
+        <!-- (1) (rPPG) -->
+        <div class="publication-item" data-categories="rPPG" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (1) Contrast-Phys+: Unsupervised and Weakly-Supervised Video-Based Remote Physiological Measurement via Spatiotemporal Contrast
+            </h4>
+            <!-- 1) Make author names black (#000) -->
+            <p style="color: #000; margin: 0;">
+              Z. Sun and <strong>X. Li*</strong>
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), vol. 46, no. 8, pp. 5835-5851, Aug. 2024 (Jufo 3)
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://ieeexplore.ieee.org/document/10440521', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('https://scholar.googleusercontent.com/scholar.bib?q=info:1dMgzDgzG0MJ:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8UoEM:AFWwaeYAAAAAZ9YSuEPQmq0ijk4TKanZKo8uKPM&scisig=AFWwaeYAAAAAZ9YSuKloaD2Lf0uA9fVG_4GWlyU&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button>
+              <button style="margin-right:6px;" onclick="window.open('https://github.com/zhaodongsun/contrast-phys', '_blank')"> Code </button>
+            </p>
+          </div>
+        </div>
+        <!-- (2) (rPPG,Bio) -->
+        <div class="publication-item" data-categories="rPPG,Bio" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (2) Biometric Authentication Based on Enhanced Remote Photoplethysmography Signal Morphology
+            </h4>
+            <p style="color: #000; margin: 0;">
+              Z. Sun, <strong>X. Li*</strong>, J. Komulainen, and G. Zhao
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              2024 IEEE International Joint Conference on Biometrics (IJCB), Sept. 2024
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://ieeexplore.ieee.org/abstract/document/10744426', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('https://scholar.googleusercontent.com/scholar.bib?q=info:cFpj4k7GbbAJ:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8UrOw:AFWwaeYAAAAAZ9YStOys4_m47WsokQMHh-wIopM&scisig=AFWwaeYAAAAAZ9YStDV9S_MG1tC40UVu67rHEoE&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button>
+              <button style="margin-right:6px;" onclick="window.open('https://www.youtube.com/watch?v=MivJi39Eln4&ab_channel=IEEEBiometricsCouncil', '_blank')"> Presentation </button>
+            </p>
+          </div>
+        </div>
+        <!-- (3) (AC) -->
+        <div class="publication-item" data-categories="AC" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (3) SMG: A Micro-gesture Dataset Towards Spontaneous Body Gestures for Emotional Stress State Analysis
+            </h4>
+            <p style="color: #000; margin: 0;">
+              H. Chen, H. Shi, X. Liu, <strong>X. Li</strong>, and G. Zhao
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              International Journal of Computer Vision, 131, 1346–1366 (2023)
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://link.springer.com/article/10.1007/s11263-023-01761-6', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('https://scholar.googleusercontent.com/scholar.bib?q=info:Z3MEpzUI6BQJ:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8Ut18:AFWwaeYAAAAAZ9YSr1-cIU_Ny39sASzboEJTECo&scisig=AFWwaeYAAAAAZ9YSr-6lqOAAdvmA7ngiIaAoQ7w&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button>
+            </p>
+          </div>
+        </div>
+        <!-- (4) (AC) -->
+        <div class="publication-item" data-categories="AC" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (4) Facial Micro-Expressions: An Overview
+            </h4>
+            <p style="color: #000; margin: 0;">
+              G. Zhao, <strong>X. Li</strong>, Y. Li, and M. Pietikäinen
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              Proceedings of the IEEE, vol. 111, no. 10, pp. 1215-1235, Oct. 2023 (Jufo 3)
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://ieeexplore.ieee.org/abstract/document/10144523', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('hhttps://scholar.googleusercontent.com/scholar.bib?q=info:D_CaCPZI5lgJ:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8UKck:AFWwaeYAAAAAZ9YSMcm1Ux24goL4INKoktzMz8s&scisig=AFWwaeYAAAAAZ9YSMXzFaa-Ws08PuSYDtHUhcKY&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button>
+            </p>
+          </div>
+        </div>
+        <!-- (5) (FD) -->
+        <div class="publication-item" data-categories="FD" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (5) Unified Video and Image Representation for Boosted Video Face Forgery Detection
+            </h4>
+            <p style="color: #000; margin: 0;">
+              H. Liu, C. Pan, Y. Liu, G. Zhao, and <strong>X. Li*</strong>
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              27th European Conference on Artificial Intelligence (ECAI 2024), Santiago de Compostela, Spain, Oct. 2024, IOS Press
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://ebooks.iospress.nl/pdf/doi/10.3233/FAIA240548', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('https://scholar.googleusercontent.com/scholar.bib?q=info:YV2d-l0bh80J:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8WM_0:AFWwaeYAAAAAZ9YQK_1nuOcKGnY5Tn0hJh3CUdI&scisig=AFWwaeYAAAAAZ9YQK6-KSQhgfAXW71AdhD_xLv8&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button> 
+            </p>
+          </div>
+        </div>
+        <!-- (6) (FD) -->
+        <div class="publication-item" data-categories="FD" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (6) Exemplar-Free Incremental Deepfake Detection
+            </h4>
+            <p style="color: #000; margin: 0;">
+              W. Xiong, G. Zhao, and <strong>X. Li*</strong>
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              27th European Conference on Artificial Intelligence (ECAI 2024), Santiago de Compostela, Spain, Oct. 2024, IOS Press
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://ebooks.iospress.nl/doi/10.3233/FAIA240516', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('https://scholar.googleusercontent.com/scholar.bib?q=info:r5LmjBu5Z8AJ:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8WZ6s:AFWwaeYAAAAAZ9YQf6vTrrGif3nUXe1kSfK7exw&scisig=AFWwaeYAAAAAZ9YQf-AurF8SKtV7IHjqt_nIIaA&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button> 
+            </p>
+          </div>
+        </div>
+        <!-- (7) (Bio) -->
+        <div class="publication-item" data-categories="Bio" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (7) Deep Learning for Face Anti-Spoofing: A Survey
+            </h4>
+            <p style="color: #000; margin: 0;">
+              Z. Yu, Y. Qin, <strong>X. Li</strong>, C. Zhao, Z. Lei, and G. Zhao
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              IEEE Transactions on Pattern Analysis and Machine Intelligence, 2023, vol. 45, no. 5, pp. 5609-5631
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://ieeexplore.ieee.org/abstract/document/9925105', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('https://scholar.googleusercontent.com/scholar.bib?q=info:pm-UTrURhQUJ:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8WseE:AFWwaeYAAAAAZ9YQqeGvbon4AUFLIpK80_5DRPg&scisig=AFWwaeYAAAAAZ9YQqUSpu-z_QabQY-Bn9qdJqlU&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button> 
+            </p>
+          </div>
+        </div>
+        <!-- (8) (rPPG) -->
+        <div class="publication-item" data-categories="rPPG" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (8) Remote Heart Rate Measurement from Highly Compressed Facial Videos
+            </h4>
+            <p style="color: #000; margin: 0;">
+              Z. Yu#, W. Peng#, <strong>X. Li</strong>, X. Hong, and G. Zhao
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              IEEE International Conference on Computer Vision (ICCV 2019), pp. 151–160
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://openaccess.thecvf.com/content_ICCV_2019/html/Yu_Remote_Heart_Rate_Measurement_From_Highly_Compressed_Facial_Videos_An_ICCV_2019_paper.html', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('https://scholar.googleusercontent.com/scholar.bib?q=info:XoDnyqtJew0J:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8WzCA:AFWwaeYAAAAAZ9YQ1CDkqz6f9OyFBgeq29nrFZc&scisig=AFWwaeYAAAAAZ9YQ1BxV9VkoyaakEb-CZTckjhg&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button>
+              <button style="margin-right:6px;" onclick="window.open('https://github.com/ZitongYu/STVEN_rPPGNet?tab=readme-ov-file', '_blank')"> Code </button>
+            </p>
+          </div>
+        </div>
+        <!-- (9) (AC) -->
+        <div class="publication-item" data-categories="AC" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (9) Towards Reading Hidden Emotions: A Comparative Study of Spontaneous Micro-Expression Spotting and Recognition Methods
+            </h4>
+            <p style="color: #000; margin: 0;">
+              <strong>X. Li</strong>, X. Hong, A. Moilanen, X. Huang, T. Pfister, G. Zhao
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              IEEE Transactions on Affective Computing, vol. 9, no. 4, pp. 563-577, Oct.-Dec. 2018 (Jufo 3, 450 citations)
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://ieeexplore.ieee.org/abstract/document/7851001', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('https://scholar.googleusercontent.com/scholar.bib?q=info:oUqE1CVWYL4J:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8XM6k:AFWwaeYAAAAAZ9YRK6n-suFe0NShSW823BERwls&scisig=AFWwaeYAAAAAZ9YRK9FHecsgFAzt98K10bZm9aQ&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button>
+            </p>
+          </div>
+        </div>
+        <!-- (10) (rPPG,AC) -->
+        <div class="publication-item" data-categories="rPPG,AC" style="display: flex; gap: 20px; align-items: flex-start;">
+          <div>
+            <img src="images/publications.jpg" alt="Publication Icon" style="width: 25px; height:auto;">
+          </div>
+          <div style="flex:1;">
+            <h4 style="color: #1a3f95; margin: 0 0 5px;">
+              (10) Estimating Stress in Online Meetings by Remote Physiological Signal and Behavioral Features
+            </h4>
+            <p style="color: #000; margin: 0;">
+              Z. Sun, A. Vedernikov, V.-L. Kykyri, M. Pohjola, M. Nokia, and <strong>X. Li*</strong>
+            </p>
+            <p style="color: #555; font-style: italic; margin: 2px 0 8px 0;">
+              Adjunct Proceedings of the 2022 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp22), pp. 216-220, 2022
+            </p>
+            <p style="margin: 6px 0;">
+              <button style="margin-right:6px;" onclick="window.open('https://dl.acm.org/doi/abs/10.1145/3544793.3563406', '_blank')"> Full paper </button>
+              <button style="margin-right:6px;" onclick="window.open('https://scholar.googleusercontent.com/scholar.bib?q=info:KF-ltVfaBNYJ:scholar.google.com/&output=citation&scisdr=ClHgtGPxELjEpW8XSH0:AFWwaeYAAAAAZ9YRUH2W2LwsC8yxS_dB-6oQDJE&scisig=AFWwaeYAAAAAZ9YRUN6_gPM8qI5KpkCnaXdpN5s&scisf=4&ct=citation&cd=-1&hl=en', '_blank')"> Cite </button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <script>
+        function filterPublications(category) {
+          const items = document.querySelectorAll('#publications .publication-item');
+          items.forEach(item => {
+            const catString = item.getAttribute('data-categories') || '';
+            const cats = catString.split(',').map(c => c.trim());
+            if (category === 'all' || cats.includes(category)) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        }
+        filterPublications('all');
+      </script><br>
+
+      <div style="text-align: center;">
+        <a class="view-more-btn" 
+          href="https://scholar.google.com/citations?hl=en&user=JTFfexYAAAAJ&view_op=list_works&sortby=pubdate" 
+          target="_blank" 
+          rel="noopener noreferrer">
+          View All Publications...
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2) Black Footer -->
+  <footer>
+    &#x1F3E2; Zhejiang University, Hangzhou, Zhejiang, China, 310027.
+    <a target="_blank" href="https://maps.app.goo.gl/QDShVg7Wf3qBjoyu5">
+      <u>&#x1F4CD;</u>
+    </a>
+  </footer>
+
+  <!-- 4) Scroll Up Arrow (dark blue) -->
+  <div id="scrollUp" onclick="scrollToTop()">&#x2191;</div>
+
+  <!-- Modals Container (for Projects and News only) -->
+  <div id="modals-container"></div>
+
+  <script>
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'flex';
+      } else {
+        console.warn('Modal with id "' + modalId + '" not found.');
+      }
+    }
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // 4) Show/Hide scrollUp arrow + scrollToTop function
+    window.addEventListener('scroll', function() {
+      const scrollUp = document.getElementById('scrollUp');
+      if (window.scrollY > 300) {
+        scrollUp.style.display = 'block';
+      } else {
+        scrollUp.style.display = 'none';
+      }
+    });
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Load modals for Projects & News
+    window.addEventListener('DOMContentLoaded', async () => {
+      const modalsContainer = document.getElementById('modals-container');
+      // Load projects modal
+      try {
+        const resProj = await fetch('projects.html');
+        if (!resProj.ok) throw new Error('Network response was not ok');
+        const projHtml = await resProj.text();
+        modalsContainer.innerHTML += projHtml;
+        console.log('projects.html loaded successfully.');
+      } catch (err) {
+        console.error('Error loading projects.html:', err);
+      }
+      // Load news modal
+      try {
+        const resNews = await fetch('news.html');
+        if (!resNews.ok) throw new Error('Network response was not ok');
+        const newsHtml = await resNews.text();
+        modalsContainer.innerHTML += newsHtml;
+        console.log('news.html loaded successfully.');
+      } catch (err) {
+        console.error('Error loading news.html:', err);
+      }
+    });
+  </script>
+</body>
+</html>
